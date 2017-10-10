@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<title>智游问答</title>
+		<style type="text/css">
+			img {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="row" style="position: relative;">
+					<a href="" class="navbar-brand">智游教育</a>
+					<div class="navbar-title pull-right">
+						<span id="ask">
+							<span class="glyphicon glyphicon-plus-sign"></span>提问
+						</span>
+						<span id="user" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="glyphicon glyphicon-user"> </span><span></span>
+						</span>
+						<ul class="dropdown-menu " aria-labelledby='user'>
+							<li>
+								<a href="userInfo.html" id="">个人资料</a>
+							</li>
+							<li>
+								<a href="#" id="outLogin">退出登录</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">退出登录</h4>
+					</div>
+					<div class="modal-body">
+						<p></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">确认</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<div class="questions container">
+			
+		</div>
+		<script src="jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap-3.3.7-dist/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var username = $.cookie('username');
+			$('#ask').click(() => {
+				if(username) {
+					location = 'ask.html'
+				} else {
+					alert('请先登录');
+					location = 'login.html'
+				}
+			});
+			if(username) {
+				$('#user').find('span').last().text(username);
+			} else {
+				$('#user').find('span').last().text('登录').parent().removeAttr('data-toggle').click(function() {
+					location.href = 'login.html'
+				});
+			}
+			$('#outLogin').click(function(event) {
+				event.preventDefault();
+				$.get('/user/out', (data) => {
+					$('.modal-body').html(data.msg);
+					$('.fade').modal('show').on('hide.bs.modal'), () => {
+						location = '/'
+					}
+					$('#user').find('span').last().text('登录').parent().removeAttr('data-toggle').click(function() {
+						location.href = 'login.html'
+					});
+				})
+			})
+
+			$.get('/user', (data) => {
+				var strhtml = '';
+				for(var i = 0; i < data.length; i++) {
+					var question = data[i];
+					strhtml += `<div class='media ' data-question='${question.time}'>
+				<div class="pull-left"><img src="../img/${question.username}.jpg" onerror='defaultImg(this)' /></div>
+				<div class="media-body">
+					<h4 class="media-heading">${question.username}</h4>${question.content}</div>
+				<div class="media-footering"><span>${setTime(question.time)}</span><span>${setIp(question.ip)}</span>
+				</div>
+			</div>`;
+					if(question.answer) {
+						for(var j = 0; j < question.answer.length; j++) {
+							strhtml += `<div class='media ' data-question='${question.time}'>
+				<div class="pull-right"><img src="../img/${question.username}.jpg" onerror='defaultImg(this)' /></div>
+				<div class="media-body">
+					<h4 class="media-heading">${question.username}</h4>${question.content}</div>
+				<div class="media-footering"><span>${setTime(question.time)}</span><span>${setIp(question.ip)}</span>
+				</div>
+			</div>`;
+						}
+					}
+				}
+				$('.questions').append(strhtml)
+			})
+
+			$('.questions').on('click', '.media[data-question]', function() {
+				$.cookie('question', $(this).data('question'));
+				if($.cookie('username')){
+					location = 'answer.html';					
+				}
+				else{
+					alert('请先登录')
+					location='login.html'
+				}
+			})
+
+			function defaultImg(img) {
+				$(img).attr('src', 'a.jpg')
+			}
+
+			function setTime(t) {
+				var t = new Date(t);
+				var year = t.getFullYear();
+				var mouth = t.getMonth() + 1;
+				var date = t.getDate();
+				var hour = t.getHours();
+				var minute = t.getMinutes();
+				var timeStr = year + '-' + mouth + '-' + date + '-' + hour + ':' + minute;
+				return timeStr;
+			}
+
+			function setIp(ip) {
+				if(ip.startsWith('::1')) {
+					return 'localhost'
+				} else {
+					return ip;
+				}
+			}
+		</script>
+	</body>
+
+</html>
