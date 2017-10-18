@@ -1,0 +1,45 @@
+body,ul,li{
+	margin: 0;padding: 0;
+	list-style: none;
+}
+body{
+	background: black;
+	color: white;
+}
+.box{
+	position: relative;
+	width: 754px;
+	height: 292px;
+	margin:200px auto 0;
+}
+.box .prev,
+.box .next{
+	position: absolute;
+	top: 50%;
+	width: 40px;height: 80px;
+	margin-top: -40px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 13px;
+	cursor: pointer;
+}
+.box .prev{
+	left: -60px;
+}
+.box .next{
+	right: -60px;
+}
+.box ul{
+	position: relative;
+	width: 100%;height: 100%;
+}
+.box li{
+	position: absolute;
+	/*width: 0;height: 0;*/
+	border-radius: 5px;
+	background: black;
+	border: 3px solid white;
+}
+.box li img{
+	width: 100%;height: 100%;
+}
