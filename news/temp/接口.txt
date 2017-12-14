@@ -1,0 +1,24 @@
+
+聚合新闻
+http://v.juhe.cn/toutiao/index?type=top&key=988a9c83de0fb1a4d4993d1c4a429961
+
+阿凡达 头条新闻
+ http://api.avatardata.cn/TouTiao/Query?key=b49c3cb47c9b49b99d3d6d5084603d07&type=top
+ 
+ 新闻搜索
+  http://api.avatardata.cn/ActNews/Query?key=7eb25ace290647daa184810e54d5f96c&keyword=奥巴马
+ 
+天气
+ http://api.avatardata.cn/Weather/Query?key=0ee7b265d80e48198dfecb7e60c7b385&cityname=武汉
+ 
+周公解梦
+ http://api.avatardata.cn/ZhouGongJieMeng/LookUp?key=83000fd1854347ba8a02c36352d77b2f&keyword=梦见妈妈
+ 
+星座
+ http://api.avatardata.cn/Constellation/Query?key=94d8028c7124476a82982303658f5748&consName=%E7%8B%AE%E5%AD%90%E5%BA%A7&type=today
+ 
+历史上的今天
+http://api.avatardata.cn/HistoryToday/LookUp?key=028beac9be2c4363a56d58f0ff88a0fe&yue=1&ri=1&type=1&page=1&rows=5
+
+姓起源
+ http://api.avatardata.cn/XingShiQiYuan/LookUp?key=92f5459f00574fbfa9871b8c97585e19&xingshi=百里

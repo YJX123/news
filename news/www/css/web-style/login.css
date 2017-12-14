@@ -1,0 +1,342 @@
+.wrapper{
+	width: 990px;
+	margin: 0 auto;
+}
+*{
+	box-sizing: border-box;
+}
+/*header*/
+header{
+	height: 110px;
+}
+.shadow{
+	box-shadow: 0 7px 10px rgb(243,243,243);
+	height: 10px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+}
+header .logo{
+	display: inline-block;
+	width: 50px;height: 50px;
+	margin-top: 24px;
+	margin-right: 20px;
+	background-image: url(../../img/a1.png);
+	background-size: contain;
+	float: left;
+	cursor: pointer;
+}
+.logo-title{
+	font-size: 24px;
+	height: 34px;
+	line-height: 34px;
+	display: inline-block;
+	margin-top: 34px;
+	float: left;
+}
+.pleaselogin{
+	font-size: 16px;
+    float: right;
+    margin-top: 55px;
+    color: #999;
+}
+.pleaselogin a{
+	color: black;
+}
+@font-face {
+	  font-family: 'iconfont';  /* project id 376454 */
+	  src: url('//at.alicdn.com/t/font_376454_5xyalx98s1mrt3xr.eot');
+	  src: url('//at.alicdn.com/t/font_376454_5xyalx98s1mrt3xr.eot?#iefix') format('embedded-opentype'),
+	  url('//at.alicdn.com/t/font_376454_5xyalx98s1mrt3xr.woff') format('woff'),
+	  url('//at.alicdn.com/t/font_376454_5xyalx98s1mrt3xr.ttf') format('truetype'),
+	  url('//at.alicdn.com/t/font_376454_5xyalx98s1mrt3xr.svg#iconfont') format('svg');
+}
+.iconfont{
+	font-family: iconfont; 
+	font-size: 17px;
+	width: 27px; 
+	font-style: normal; 
+	display: inline-block; 
+	-webkit-text-stroke-width: 0.2px; /* 严重的锯齿,对字体图标的边缘进行模糊 */ 
+	color: red;
+	cursor: pointer;
+}
+header a:hover{
+	color: red;
+}
+/*tip*/
+.icon-tip{
+	display: inline-block;
+	background: url(../img/icon.png);
+	width: 16px;height: 16px;
+	background-position-y:240px;
+	background-position-x:332px;
+	margin-right: 5px;
+	vertical-align: text-bottom;
+}
+.tip{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	text-align: center;
+	line-height: 40px;
+	font-size: 12px;
+	color: orange;
+	background: rgb(255,248,240);
+	height: 40px;
+}
+.tip a{
+	color: black;
+}
+.tip a:hover{
+	color: red;
+}
+/*main*/
+main{
+	/*border: 1px solid black;*/
+	position: relative;
+	height: 450px;
+	margin-top: 40px;
+}
+main>div{
+	position: absolute;
+	top: 40px;
+	right: 20px;
+	width: 346px;
+	height: 350;
+	/*border: 1px solid black;*/
+}
+.scan-code,.account{
+	display: inline-block;
+	width: 170px;height: 54px;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 54px;
+	font-size: 18px;
+	color: black;
+}
+.scan-code:hover,.account:hover{
+	color: red;
+	font-weight: bolder;
+	text-decoration: none;
+}
+.split{
+	color: gainsboro;
+}
+.username label , .pw label{
+	display: inline-block;
+	width: 38px;height: 38px;
+	background: pink;
+}
+.username label{
+	background: url(../img/pwd-icons-new.png);
+	border: 1px solid #bdbdbd;
+	background-position-y: 126px;
+}
+.pw label{
+	background: url(../img/pwd-icons-new.png);
+	background-position-y: 126px;
+	background-position-x: 72px;
+	border: 1px solid #bdbdbd;
+	box-sizing: border-box;
+}
+input{
+	display: inline-block;
+	width: 254px;height: 38px;
+	font-size: 14px;
+	padding-left: 20px;
+	outline: none;
+	border: 1px solid #bdbdbd;
+	border-left: none;
+	background: white;
+	color: black;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.fl{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+label{
+	margin-bottom: 0;
+}
+form{
+	border-top: 1px solid gainsboro;
+	border-bottom: 1px solid gainsboro;
+	padding-top: 30px;
+}
+#submit{
+	width: 292px;
+	height: 31px;
+	line-height: 31px;
+	color: white;
+	background: rgb(228,57,60);
+	font-size:20px ;
+	border: none;
+	letter-spacing: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+/*nav*/
+nav{
+	position: relative;
+	width: 292px;
+	display: flex;
+	height: 50px;
+	/*border: 1px solid black;*/
+	margin: auto;
+	
+}
+.icon{
+	display: inline-block;
+	width: 19px;height: 18px;
+	background: pink;
+	vertical-align: text-bottom;
+	margin-right: 8px;
+	cursor: pointer;
+}
+nav a{
+	line-height: 50px;
+	color: black;
+}
+nav a:hover{
+	color: red;
+}
+.register{
+	color: rgb(228,57,60);
+	font-size: 14px;
+}
+.register:hover{
+	color: rgb(228,57,60);
+}
+nav .split{
+	line-height: 50px;
+}
+.right-now{
+	position: absolute;
+	right: 0;
+}
+.qq{
+	margin-right: 20px;
+}
+.wechat{
+	margin: 0 20px;
+}
+/*footer*/
+footer{
+	height: 120px;
+}
+ul{
+	width: 900px;
+	margin: 0 auto;
+	padding:  30px 0 15px 0;
+}
+ul:after{
+	display: block;
+	content: '';
+	clear:both;
+}
+li{
+	float: left;
+	list-style: none;
+	color: gray;
+}
+li>a{
+	color: gray;
+	margin-right: 10px;
+	margin-left: 10px;
+	font-size: 12px;
+}
+ul>li:nth-of-type(1){
+	margin-left: 0;
+}
+footer p{
+	text-align: center;
+	font-size: 12px;
+	color: gray;
+}
+footer a:hover{
+	color: red;
+}
+.mid{
+	width: 990px;
+	margin:0 auto;
+	/*position: absolute;*/
+	left: 0;
+	background-color: #721bca;
+	background-image: url(../img/login.jpg);
+	background-repeat: no-repeat;
+	margin-top: 40px;
+	background-position: 50%;
+}
+main>div{
+	background: white;
+}
+main{
+	width: 990px;
+	margin: auto;
+}
+footer{
+	margin-top: 500px;
+}
+.qq .icon{
+	background: url(../img/QQ-weixin.png);
+}
+.wechat .icon{
+	background: url(../img/QQ-weixin.png);
+	background-position-x: -19px;
+}
+.right-now .icon{
+	background: url(../img/pwd-icons-new.png);
+	background-position-x: -101px;
+	background-position-y: 101px;
+}
+.username,.pw{
+	position: relative;
+}
+.clear{
+	position: absolute;
+	right: 33px;
+	display: inline-block;
+	width: 20px;height: 20px;
+	background: url(../img/pwd-icons-new.png);
+	background-position-x: -23px;
+	background-position-y: 33px;
+	cursor: pointer;
+	display: none;
+}
+.clear:hover{
+	background-position-x: -48px;
+}
+.msg-error{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	height: 23px;
+	width: 292px;
+	border: 1px solid #faccc6;
+	margin:10px auto;
+	margin-left: -146px;
+	background: rgb(255,235,235);
+	display: none;
+}
+.error-icon{
+	display: inline-block;
+	width: 16px;height: 16px;
+	vertical-align: text-bottom;
+	margin: auto 11px;
+	background: url(../img/pwd-icons-new.png);
+	background-position-x: -104px;
+	background-position-y: 125px;
+}
+form{
+	position: relative;
+	padding-top: 40px;
+}
+.error-content{
+	line-height:23px ;
+	font-size: 12px;
+}

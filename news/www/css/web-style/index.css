@@ -1,0 +1,201 @@
+/*包裹所有标签的最外层*/
+.wrapper{
+	width: 80vw;
+	min-width: 960px;
+	/*height: 3000px;*/
+	margin: auto;
+	border: 1px solid black;
+	position: relative;
+}
+img:hover{
+	cursor: pointer;
+}
+a:hover{
+	cursor: pointer;
+	text-decoration: none !important;
+}
+/*头部,其中有登入注册功能*/
+header{
+	height: 7vh;
+	border: 1px solid black;
+}
+header>div{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+header>div>a{
+	margin-left: 10px;
+}
+/*logo,搜索部分*/
+.logo-serch{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	position: relative;
+	border: 1px solid black;
+}
+.logo-serch img{
+	width: 50px;height: 50px;
+	margin-right: 10vw;
+}
+.logo-serch .form-control{
+	display: inline-block;
+}
+.logo-serch .serch{
+	display: flex;
+	align-items: center;
+	width: 300px;
+}
+.logo-serch a{
+	margin-left: 5px;
+}
+/*新闻分类*/
+.news-list{
+	border: 1px solid black;
+	display: flex;
+	justify-content: space-between;
+}
+.news-list li{
+	width: 11.1%;
+}
+.news-list li a{
+	text-align: center;
+}
+/*新闻内容，轮播，天气等等*/
+.block{
+	margin-top: 20px;
+	/*height: 2000px;*/
+	border: 1px solid black;
+	display: flex;
+	justify-content: space-between;
+}
+.block .left{
+	width: 60%;
+	/*border: 1px solid black;*/
+	/*background: antiquewhite;*/
+}
+.block .right{
+	width: 38%;
+	/*border: 1px solid black;*/
+	/*background: palegoldenrod;*/
+}
+.block .left .part{
+	height: 180px;
+	/*border: 1px solid black;*/
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid gainsboro;
+}
+.block .left .part-left img{
+	width: 205px;
+	position: absolute;
+	left: 0;
+}
+.block .left .part .part-left{
+	width: 30%;
+	/*border: 1px solid black;*/
+}
+.block .left .part .part-right{
+	/*border: 1px solid black;*/
+	height: 135px;
+	width: 70%;
+	padding: 0 25px;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+}
+.block .left .part .part-right .title{
+	font-size: 30px;
+}
+.block .part-left a{
+	display: inline-block;
+	width: 180px;
+	height: 135px;
+	overflow: hidden;
+	position: relative;
+}
+/*轮播*/
+.block .right .part{
+	padding: 5px;
+}
+/*		去掉轮播图两侧阴影		*/
+			/*#slideshow-content*/ .carousel-control.left {
+				 /*background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
+				  background-image:      -o-linear-gradient(left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
+				  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));*/
+				  /*background-image:         linear-gradient(to right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);*/
+				 background-image: none;
+				  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+				  background-repeat: repeat-x;
+			}
+			/*#slideshow-content*/ .carousel-control.right {
+				  right: 0;
+				  left: auto;
+				  /*background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
+				  background-image:      -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
+				  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));*/
+				  /*background-image:         linear-gradient(to right, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);*/
+				 background-image: none;
+				  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+				  background-repeat: repeat-x;
+			}
+/*can 轮播箭头*/
+.caro .carousel-control{
+				position: absolute;
+				width: 30px;
+				height: 60px;
+				top: calc((100% - 60px) / 2);
+				background: gainsboro;
+				opacity: 0.5 !important;
+				display: none;
+			}
+.caro .glyphicon-chevron-right:before {
+				    position: absolute;
+				    right: 4px;
+				    top: 2px;
+				    font-size: 12px;
+				    color: black;
+			}
+.caro .glyphicon-chevron-left:before {
+				    position: absolute;
+				    left: 5px;
+				    color: black;
+				    top: 3px;
+				    font-size: 12px;
+			}
+.caro .carousel:hover .carousel-control{
+				display: block;
+}
+.block .part .caro img{
+	width: 100% ;
+}
+.block .part .caro .item{
+	width: 100%;
+}
+.block .right .part h1{
+	margin: 5px;
+}
+.block .right .part h4{
+	font-weight: bolder;
+	font-size: 16px;
+}
+.block .right .part img{
+	
+}
+#carousel-1 .item .tit{
+	position: absolute;
+	bottom: 0;
+	font-size: 18px;
+	background-color: rgba(0,0,0,0.7);
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+	height: 30px;
+	line-height: 25px;
+	overflow: hidden;
+}
+#carousel-1 .item .tit a{
+	color: white;
+}

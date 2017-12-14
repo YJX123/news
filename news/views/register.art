@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人注册</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/web-style/register.css"/>
+		<link rel="stylesheet" href="dist/css/swiper.min.css">
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+		<script src="js/validator_method.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="wrapper register">
+			<header>
+				<div class="logo"></div><span class="logo-title">欢迎注册</span>
+				<div class="pull-right pleaselogin"><span>已有账号？</span><a href="login.html">请登录</a></div>
+			</header>
+			<div class="shadow"></div>
+			<main>
+				<form action="/register" method="post">
+					<div>
+						<label style="letter-spacing: 12px;">用户名</label><input type="text" name="user" id="1" value="" placeholder="你的账户名和登录名" onblur="this.placeholder='你的账户名和登录名'"/><div class="yes"></div>
+					</div>
+					<div>
+						<label  style="letter-spacing: 4px;">设置密码</label><input type="password" name="pw" id="2" value="" placeholder="建议至少使用两种字符组合" onblur="this.placeholder='建议至少使用两种字符组合'"/><div class="yes"></div>
+					</div>
+					<div>
+						<label  style="letter-spacing: 4px;">确认密码</label><input type="password" name="chpw" id="3" value="" placeholder="请再次输入密码" onblur="this.placeholder='请再次输入密码'"/><div class="yes"></div>
+					</div>
+					<div>
+						<label style="letter-spacing: 4px;">邮箱验证</label><input type="email" name="email" id="4" value="" placeholder="建议使用常用邮箱" onblur="this.placeholder='建议使用常用邮箱'"/><div class="yes"></div>
+					</div>
+					<div>
+						<label style="letter-spacing: 12px;">验证码</label><input type="text" name="code" id="5" value="" placeholder="请输入验证码" onblur="this.placeholder='请输入验证码'"/>
+						<div class="code"></div>
+					</div>
+					<div>
+						<input type="submit" name="" id="submit" value="立即注册" />
+					</div>
+				</form>
+				<div class="separation"></div>
+				<div class="other-register">
+					<div>
+						<!--轮播图-->
+						 <div class="swiper-container">
+						    <div class="swiper-wrapper">
+						      <div class="swiper-slide" style="background-image:url(img/register/1.jpg)"></div>
+						      <div class="swiper-slide" style="background-image:url(img/register/2.jpg)"></div>
+						      <div class="swiper-slide" style="background-image:url(img/register/3.jpg)"></div>
+						      <div class="swiper-slide" style="background-image:url(img/register/4.jpg)"></div>
+						      <div class="swiper-slide" style="background-image:url(img/register/5.jpg)"></div>
+						    </div>
+						    <!-- Add Pagination -->
+						    <div class="swiper-pagination"></div>
+						  </div>
+						
+					</div>
+				</div>
+			</main>
+			
+			<div class="modal fade" tabindex="-1" role="dialog">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">京东--注册</h4>
+			      </div>
+			      <div class="modal-body">
+			        <p></p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">去登录</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</div>
+		 <script src="dist/js/swiper.min.js"></script>
+		<script type="text/javascript">
+			//输入信息时input提示信息清空
+			$('input').click(function(){$(this)[0].placeholder=''});
+			//当不输入信息的时候书写格式信息移除
+			$('input').blur(function(){
+				$('.content-tip').detach();
+			})
+			//输入信息的时候
+			$('input').not('#submit').focus(function(){
+				//获取当前焦点input的id，并将id转换为数字
+				var str=$(this).attr('id');
+				var num=parseInt(str);
+				var des=$(this).after('<div class="content-tip"><div class="icon-tip"></div><span class="tip"></span></div>').nextAll('.content-tip').find('.tip');
+				//移除验证时显示的格式错误提示信息
+				$(this).nextAll('.contenttip').detach();
+				//移除验证时改变的用于显示错误格式信息的样式
+				$(this).parents('.unfinish').removeClass('unfinish');
+				//获取到的id可以用来判断当前正在输入的输入框，添加提示用户书写信息格式
+				switch (num){
+					case 1:
+						des.text('支持中文、字母、数字、“-”、“_”、的组合，4-20个字符')
+						break;
+					case 2:
+						des.text('建议字母、数字、符号两种及以上组合，6-20个字符')
+						break;
+					case 3:
+						des.text('请再次输入密码')
+						break;
+					case 4:
+						des.text('请输入你的邮箱')
+						break;
+					case 5:
+						des.text('看不清？点击图片更换验证码')
+						break;
+				}
+			});
+			//设置输入信息格式错误时的提示信息
+			$.validator.setDefaults({
+				errorElement:'span',
+				errorClass:'error',
+				errorPlacement:function(error,element){
+					//制定错误信息添加位置
+					element.after('<div><div></div></div>');
+					//为错误信息添加样式
+					error.appendTo(element.parent().find('div').first()).addClass('tip').prev().addClass('icon-stop').parent().addClass('contenttip');
+				},
+				 success:function(label,element){
+				 	//移除错误提示，显示验证通过图标
+				 	$(element).nextAll('.contenttip').detach().end().parent().removeClass('unfinish').find('.yes').show();
+	            },
+	            highlight:function(element,errorClass,validClass){
+	            	//添加错误提示，移除用于提示用户书写信息时的提示信息，然后会自动显示具体错误格式信息
+	            	$(element).parent().addClass('unfinish').find('.content-tip').detach().end().find('.yes').hide();
+	            }
+			})
+			//验证输入信息格式
+			$('form').validate({
+				rules:{
+					user:{
+						required:true,
+						minlength:4,
+                 		maxlength:20
+					},
+					pw:{
+						required:true,
+						minlength:6,
+                 		maxlength:20
+					},
+					chpw:{
+						required:true,
+						equalTo:'#2'
+					},
+					email:{
+						required:true,
+						email:true
+					}
+				},
+				messages:{
+					user:{
+						required:'请输入用户名'
+					},
+					pw:{
+						required:'请输入密码'
+					},
+					chpw:{
+						required:'请输入密码',
+						equalTo:'两次密码输入不一致'
+					},
+					email:{
+						 required:'请输入邮箱',
+                  		 email:'请输入正确的邮箱格式'
+					}
+				}
+			})
+			$('form').submit(function(){
+				event.preventDefault();
+				//点击提交时，移除用于提示用户输入信息时候的提示信息
+				$('.content-tip').detach();
+				//标志：用于记录验证码输入正确或者错误
+				var codeRight=false;
+				//验证码输入正确时候codeRight标志为true
+				$('#5').val()==$('.code').text()?codeRight=true:'';
+				//验证码输入正确的时候
+				if(codeRight){
+					$.post(this.action,$(this).serialize(),(data)=>{
+						//账号信息存入成功，跳转首页
+						if(data.code==1){
+							$('.modal-body').html(data.msg);
+							$('.fade').modal('show').on('hide.bs.modal',function(){
+								location='login.html'
+							})
+						}
+					})
+				}
+			})
+			//生成随机的4位字母数字字符串
+			function ranNum() {  
+			    var rdmString = "";  
+			    for( ; rdmString.length < 4; rdmString  += Math.random().toString(36).substr(2));  
+			    return  rdmString.substr(0, 4);  
+			}
+			//初始化验证码
+			$('.code').text(ranNum());
+			//点击验证码更换验证码
+			$('.code').click(()=>{$('.code').text(ranNum())})
+			
+			//swiper
+			var swiper = new Swiper('.swiper-container', {
+		    	loop : true,
+		      effect: 'cube',
+		      grabCursor: true,
+		      cubeEffect: {
+		        shadow: true,
+		        slideShadows: true,
+		        shadowOffset: 20,
+		        shadowScale: 0.94,
+		      },
+		      pagination: {
+		        el: '.swiper-pagination',
+		      },
+		    });
+		</script>
+	</body>
+</html>

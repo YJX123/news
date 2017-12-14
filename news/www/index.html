@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>时讯新闻</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/web-style/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/web-style/init.css" />
+	</head>
+
+	<body>
+		<!--包裹所有标签的最外层-->
+		<div class="wrapper">
+			<!--头部,其中有登入注册功能	-->
+			<header>
+				<div class="pull-right">
+					<a class="btn btn-success" id="login" href="/login">登录</a>
+					<a class="btn btn-info" href="/register">注册</a>
+				</div>
+			</header>
+			<!--logo,搜索部分-->
+			<div class="logo-serch">
+				<img src="img/a1.png" class="img-rounded " />
+				<div class="serch">
+					<input type="text" class="form-control" />
+					<a class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
+				</div>
+			</div>
+			<!--新闻分类-->
+			<ul class="nav nav-tabs news-list">
+				<li>
+					<a>头条</a>
+				</li>
+				<!--<li>
+					<a>社会</a>
+				</li>-->
+				<li>
+					<a>国内</a>
+				</li>
+				<li>
+					<a>国际</a>
+				</li>
+				<li>
+					<a>娱乐</a>
+				</li>
+				<li>
+					<a>体育</a>
+				</li>
+				<li>
+					<a>军事</a>
+				</li>
+				<li>
+					<a>科技</a>
+				</li>
+				<li>
+					<a>财经</a>
+				</li>
+				<li>
+					<a>时尚</a>
+				</li>
+			</ul>
+			<!--新闻内容和轮播-->
+			<div class="block">
+				<!--新闻内容-->
+				<div class="left"></div>
+				<!--轮播-->
+				<div class="right">
+					<section class="part">
+						<h1>社会</h1>
+						<div class="caro">
+
+							<div id="carousel-1" class="carousel slide" data-ride="carousel">
+								<!--<ol class="carousel-indicators">
+									<li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+									<li data-target="#carousel-1" data-slide-to="1"></li>
+									<li data-target="#carousel-1" data-slide-to="2"></li>
+									<li data-target="#carousel-1" data-slide-to="3"></li>
+									<li data-target="#carousel-1" data-slide-to="4"></li>
+									<li data-target="#carousel-1" data-slide-to="5"></li>
+									<li data-target="#carousel-1" data-slide-to="6"></li>
+									<li data-target="#carousel-1" data-slide-to="7"></li>
+								</ol>-->
+								<div class="carousel-inner content" role="listbox">
+									<div class="item active"></div>
+									<div class="item"></div>
+									<div class="item"></div>
+									<div class="item"></div>
+									<div class="item"></div>
+									<div class="item"></div>
+									<div class="item"></div>
+									<div class="item"></div>
+								</div>
+								<a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#carousel-1" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
+
+						</div>
+					</section>
+					
+				</div>
+			</div>
+		</div>
+
+		
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+
+		
+			
+		
+	</body>
+
+</html>
